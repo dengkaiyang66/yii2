@@ -1203,7 +1203,7 @@ $customers = Customer::find()->joinWith([
 // SELECT `customer`.* FROM `customer`
 // LEFT JOIN `order` ON `order`.`customer_id` = `customer`.`id` AND `order`.`status` = 1 
 // 
-// SELECT * FROM `order` WHERE `customer_id` IN (...)
+// SELECT * FROM `order` WHERE `customer_id` IN (...) AND `status` = 1
 $customers = Customer::find()->joinWith([
     'orders' => function ($query) {
         $query->onCondition(['order.status' => Order::STATUS_ACTIVE]);
